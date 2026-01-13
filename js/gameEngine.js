@@ -196,6 +196,7 @@ class GameEngine {
   }
 
   stop() {
+    if (!this.isGameActive) return;
     this.isGameActive = false;
     cancelAnimationFrame(this.animationFrameId);
 

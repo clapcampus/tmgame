@@ -59,6 +59,11 @@ async function init() {
     poseEngine.start();
 
     // 8. Start Game Loop!
+    gameEngine.setGameEndCallback(() => {
+      // Allow the alert to show before resetting (optional, but good for UX)
+      setTimeout(stop, 100);
+    });
+
     gameEngine.start({
       canvasId: "game-canvas",
       timeLimit: 60
