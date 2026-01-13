@@ -1,7 +1,6 @@
-/* 페이지 전체 스타일과 게임 UI 디자인 */
-
+/* Global Styles */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,46 +8,83 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 20px;
-  gap: 16px;
+  background-color: #f0f2f5;
+  color: #333;
 }
 
 h1 {
-  margin: 0;
-  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
 }
 
+/* Button Container */
 .button-container {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+#startBtn {
+  background-color: #4CAF50;
+}
+
+#stopBtn {
+  background-color: #f44336;
 }
 
 button:hover {
-  background-color: #f0f0f0;
+  opacity: 0.9;
+  transform: scale(1.05);
 }
 
 button:disabled {
-  opacity: 0.5;
+  background-color: #ccc;
   cursor: not-allowed;
+  transform: none;
 }
 
-.canvas-container {
+/* Main Layout (Split Screen) */
+.main-layout {
+  display: flex;
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  align-items: flex-start;
+}
+
+/* Webcam Section */
+.webcam-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.canvas-wrapper {
   position: relative;
   display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 #canvas {
-  border: 1px solid #ccc;
-  border-radius: 4px;
   display: block;
+  /* Flip the webcam horizontally for mirror effect */
+  transform: scaleX(-1);
 }
 
 #max-prediction {
@@ -57,24 +93,47 @@ button:disabled {
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-size: 16px;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
   font-weight: bold;
   pointer-events: none;
 }
 
 #label-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-width: 200px;
 }
 
 #label-container div {
-  padding: 8px;
-  background-color: #f5f5f5;
-  border-radius: 4px;
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
   text-align: center;
+  border: 1px solid #e9ecef;
+}
+
+/* Game Section */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#game-canvas {
+  border: 2px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #E0F7FA;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #555;
 }
